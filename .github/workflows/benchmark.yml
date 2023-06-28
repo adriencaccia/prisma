@@ -37,10 +37,6 @@ on:
 env:
   PRISMA_TELEMETRY_INFORMATION: 'prisma benchmark.yml'
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   benchmark:
     name: all
@@ -64,11 +60,11 @@ jobs:
       #  This is required as setup.sh can modify pnpm-lock.yml
       - run: rm -f ./pnpm-lock.yaml
 
-      # - name: Install codspeed-node from Git
-      #   run: .github/workflows/scripts/codspeed-node-from-git main
+      - name: Install codspeed-node from Git
+        run: .github/workflows/scripts/codspeed-node-from-git.sh feat/support-node-18
 
       - name: Run benchmarks for Codspeed
-        uses: CodSpeedHQ/action@v1
+        uses: CodSpeedHQ/action@main
         with:
           run: pnpm run bench-stdout-only
           upload_url: ${{ vars.CODSPEED_DEV_UPLOAD_URL }}/upload
