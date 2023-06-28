@@ -7,6 +7,7 @@
     "node": ">=16.13",
     "pnpm": ">=8.6.7 <9"
   },
+  "packageManager": "pnpm@7.33.1",
   "scripts": {
     "setup": "ts-node scripts/setup.ts",
     "build": "ts-node scripts/setup.ts --build",
