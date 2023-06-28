@@ -57,10 +57,14 @@ jobs:
           pnpm-version: 8
           skip-tsc: false
 
+      # - name: Install codspeed-node from Git
+      #   run: .github/workflows/scripts/codspeed-node-from-git main
+
       - name: Run benchmarks for Codspeed
         uses: CodSpeedHQ/action@v2
         with:
           run: pnpm run bench-stdout-only
+          upload-url: ${{ vars.CODSPEED_DEV_UPLOAD_URL }}/upload
           token: ${{ secrets.CODSPEED_TOKEN }}
         env:
           CODSPEED_BENCHMARK: true
