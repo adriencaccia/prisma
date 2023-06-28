@@ -64,8 +64,12 @@ jobs:
       #  This is required as setup.sh can modify pnpm-lock.yml
       - run: rm -f ./pnpm-lock.yaml
 
+      # - name: Install codspeed-node from Git
+      #   run: .github/workflows/scripts/codspeed-node-from-git main
+
       - name: Run benchmarks for Codspeed
         uses: CodSpeedHQ/action@v1
         with:
           run: pnpm run bench-stdout-only
+          upload_url: ${{ vars.CODSPEED_DEV_UPLOAD_URL }}/upload
           token: ${{ secrets.CODSPEED_TOKEN }}
