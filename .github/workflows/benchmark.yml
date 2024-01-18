@@ -57,8 +57,8 @@ jobs:
           pnpm-version: 8
           skip-tsc: false
 
-      # - name: Install codspeed-node from Git
-      #   run: .github/workflows/scripts/codspeed-node-from-git main
+      - name: Install codspeed-node from Git
+        run: .github/workflows/scripts/codspeed-node-from-git.sh feat/integrate-database-plugin-adriencaccia
 
       - name: Run benchmarks for Codspeed
         uses: CodSpeedHQ/action@v2
