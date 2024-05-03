@@ -68,3 +68,4 @@ jobs:
           token: ${{ secrets.CODSPEED_TOKEN }}
         env:
           CODSPEED_BENCHMARK: true
+          CODSPEED_DEBUG: true

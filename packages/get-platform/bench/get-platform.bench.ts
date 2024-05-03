@@ -3,6 +3,11 @@ import Benchmark from 'benchmark'
 
 import { getBinaryTargetForCurrentPlatformInternal, getos } from '../src/getPlatform'
 
+console.log('process.execPath', process.execPath)
+console.log('process.execArgv', process.execArgv)
+console.log('process.argv', process.argv)
+console.log('process.env', JSON.stringify(process.env, null, 2))
+
 void withCodSpeed(new Benchmark.Suite('get-platform'))
   .add('getBinaryTargetForCurrentPlatform', {
     defer: true,
