@@ -9,6 +9,12 @@ import path from 'path'
 import { compileFile } from '../../../utils/compileFile'
 import { generateTestClient } from '../../../utils/getTestClient'
 
+console.log('process.execPath', process.execPath)
+console.log('process.execArgv', process.execArgv)
+console.log('process.argv', process.argv)
+console.log('process.env', JSON.stringify(process.env, null, 2))
+throw new Error('stop')
+
 let suite = withCodSpeed(new Benchmark.Suite('typescript')).add('client generation ~50 Models', {
   defer: true,
   fn: function (deferred) {

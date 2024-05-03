@@ -26,6 +26,7 @@ async function run(benchmarks: string[]) {
       await execa.command(`pnpm tsx ${location}`, {
         stdio: 'inherit',
         env: process.env,
+        execPath: process.execPath,
       })
     } catch (e) {
       console.error(e)
