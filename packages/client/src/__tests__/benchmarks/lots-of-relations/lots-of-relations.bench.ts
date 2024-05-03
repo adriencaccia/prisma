@@ -9,7 +9,6 @@ console.log('process.execPath', process.execPath)
 console.log('process.execArgv', process.execArgv)
 console.log('process.argv', process.argv)
 console.log('process.env', JSON.stringify(process.env, null, 2))
-throw new Error('stop')
 
 const suite = withCodSpeed(new Benchmark.Suite('typescript'))
 // @ts-ignore
